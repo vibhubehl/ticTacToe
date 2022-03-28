@@ -36,7 +36,7 @@ const pointPos = [
   { x: 110, y: 50 },
 ];
 
-export default class Page1 extends React.PureComponent {
+export default class GameWindow extends React.PureComponent {
   state = {
     hoverNum: null,
   }
