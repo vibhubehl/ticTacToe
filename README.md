@@ -1,50 +1,70 @@
-<p align="center">
-  <a href="http://landing.ant.design">
-    <img width="150px" height="150px" src="https://gw.alipayobjects.com/zos/rmsportal/hSYPdZJwZeXAgfkktcEu.svg"/>
-  </a>
-</p>
-<h1 align="center">Ant Design Landing</h1>
+# Getting Started with Create React App
 
-<div align="center">
-  
-Landing Pages of Ant Design System
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-[![Dependencies](https://img.shields.io/david/ant-design/ant-design-landing.svg)](https://david-dm.org/ant-design/ant-design-landing)
-[![DevDependencies](https://img.shields.io/david/dev/ant-design/ant-design-landing.svg)](https://david-dm.org/ant-design/ant-design-landing?type=dev)
+## Available Scripts
 
-</div>
+In the project directory, you can run:
 
-<div align="center">English | <a href="./README-zh_CN.md">简体中文</a></div>
+### `npm start`
 
-## What is Landing?
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-Landing is a template built by Ant Motion's motion components. It has a rich homepage template, downloads the template code package, and can be used quickly. You can also use the editor to quickly build your own dedicated page.
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-<div align="center">
-  <a href="https://landing.ant.design/edit">Go Editing 📝</a>
-</div>
+### `npm test`
 
-## Features
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-- [Specifications](https://landing.ant.design/docs/introduce)
-- [Download](https://landing.ant.design/docs/download)
-- [Responsive](https://landing.ant.design/docs/guide/layout)
+### `npm run build`
 
-## Templates
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-Has a wealth of various page templates to provide downloads.
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-[![](https://user-images.githubusercontent.com/6802825/47977555-ac77b080-e0f3-11e8-90f3-6aa04cce5351.jpg)](http://landing.ant.design)
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-## Modules
+### `npm run eject`
 
-Diverse modules, you can quickly and flexibly configure the page template you want.
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-<div style="max-width: 600px">
-  <img src="https://user-images.githubusercontent.com/6802825/47980280-ec459480-e101-11e8-8a94-1ada4ff61faa.jpg" width="100%">
-</div>
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-## Example in scaffolding
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-- [dva-cli-example](https://github.com/ant-motion/ant-motion-dva-cli-example)
-- [umi-example](https://github.com/ant-motion/landing-umi-example)
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

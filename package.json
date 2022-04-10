@@ -1,15 +1,15 @@
 {
-  "name": "landing",
-  "version": "3.0.2",
-  "title": "Landing Pages",
-  "description": "site of Landing Pages",
-  "homepage": "http://landing.ant.design/",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ant-design/ant-design-landing"
-  },
-  "license": "MIT",
+  "name": "tic-tac-toe",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^12.1.4",
+    "@testing-library/user-event": "^13.5.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-scripts": "5.0.0",
+    "web-vitals": "^2.1.4",
     "@ant-design/compatible": "^1.0.1",
     "antd": "^4.0.1",
     "autoresponsive-react": "^1.1.31",
@@ -68,40 +68,35 @@
     "react-color": "^2.13.8",
     "react-dom": "^16.0.0",
     "react-github-button": "^0.1.11",
-    "react-intl": "^5.8.0",
+    "react-intl": "^5.24.8",
     "react-redux": "^7.0.2",
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
     "stylelint": "^13.0.0",
     "stylelint-config-standard": "^20.0.0"
   },
-  "pre-commit": [
-    "lint"
-  ],
   "scripts": {
-    "start": "npm run cp-prettier && cross-env NODE_ENV=development concurrently \"npm run start-index\" \"npm run start-edit\" \"npm run start-templates\"",
-    "start-index": "bisheng start -c ./site/bisheng.index.config.js",
-    "start-edit": "bisheng start -c ./site/bisheng.edit.config.js",
-    "start-templates": "bisheng start -c ./site/bisheng.templates.config.js",
-    "build-index": "bisheng build -c ./site/bisheng.index.config.js",
-    "build-edit": "bisheng build -c ./site/bisheng.edit.config.js",
-    "build-templates": "bisheng build -c ./site/bisheng.templates.config.js",
-    "build": "npm run cp-prettier && cross-env NODE_ENV=production concurrently \"npm run build-index\" \"npm run build-edit\" \"npm run build-templates\"",
-    "site": "npm run build",
-    "cp-prettier": "rm -rf _site && mkdir -p ./_site/edit && cp -r ./prettier/* ./_site/edit ",
-    "deploy": "npm run site && cp CNAME _site && bisheng gh-pages --push-only",
-    "lint": "npm run lint:es && npm run lint:style",
-    "lint:es": "eslint --fix --ext '.js,.jsx' site",
-    "lint:style": "stylelint --fix \"site/**/*.less\" --syntax less",
-    "lint:demo": "cross-env RUN_ENV=DEMO eslint ./ --ext '.md' -c ./.eslintrc.js",
-    "test": "npm run lint"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
-  "sideEffects": [
-    "dist/*",
-    "es/**/style/*",
-    "lib/**/style/*",
-    "site/**/static/*.js",
-    "*.less",
-    "*.css"
-  ]
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }
