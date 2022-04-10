@@ -1,0 +1,15 @@
+
+.Header {
+    box-sizing: border-box;
+    color: black;
+    width: 97%;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    padding: 1em;
+    margin: 0em 1em 1em 1em;
+    background-color: whitesmoke;
+    font-family: FreeLine;
+    font-size: x-large;
+    border-radius: 10px 140px 30px 140px;
+  }
