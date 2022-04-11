@@ -1,5 +1,5 @@
 import React from 'react';
-import { Panel } from './Panel';
+import { Panel } from "./Panel";
 
 const data: number[][] = [
   [1,2,3],
@@ -20,7 +20,7 @@ export function GameWindow (props: GameWindowProps) {
           data.map((row, index) => (
             <tr key={row[0]}>
               {row.map(cellId => 
-                <th key={cellId}> cellId </th>
+                <th key={cellId}> <Panel id={cellId}/> </th>
               )}
             </tr>
           ))
