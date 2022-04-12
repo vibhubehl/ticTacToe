@@ -20,7 +20,8 @@ export function GameWindow (props: GameWindowProps) {
           data.map((row, index) => (
             <tr key={row[0]}>
               {row.map(cellId => 
-                <th key={cellId}> <Panel id={cellId}/> </th>
+                <th key={cellId}></th>
+                // <th key={cellId}> <Panel id={cellId}/> </th>
               )}
             </tr>
           ))
