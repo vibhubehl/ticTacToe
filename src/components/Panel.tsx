@@ -20,7 +20,7 @@ export function Panel (props: PanelProps) {
   return (
     <div style={{height: 40, width: 40 }}>
         { type === PanelType["empty"] &&
-          <img src="../../../assets/Panel/zero.png"/>
+          <img src="../../assets/img/zero.png"/>
         }
     </div>
   );
