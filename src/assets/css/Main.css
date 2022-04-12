@@ -1,3 +1,4 @@
+/*****    Common elements    *****/
 h2{
     /* color: #AF5A4C; */
     color: white;
@@ -5,6 +6,17 @@ h2{
     font-size: 26px;
 }
 
+.btn{
+    color: #1B1212;
+    border-radius: 20px;
+    width: 200px;
+    height: 100px;
+    margin: 10px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+/*****   HEADER component   *****/
 .Header{
     box-sizing: border-box;
     color: black;
@@ -20,6 +32,7 @@ h2{
     border-radius: 10px 140px 30px 140px;
 }
 
+/*****    HOMEPAGE component    *****/
 .mode{
     margin-top: 10%;
     align-items: center;
@@ -29,16 +42,6 @@ h2{
     align-items: center;
     margin: 20%;
     display: inline;
-}
-
-.btn{
-    color: #1B1212;
-    border-radius: 20px;
-    width: 200px;
-    height: 100px;
-    margin: 10px;
-    font-size: 20px;
-    font-weight: 700;
 }
 
 .btn-single{
@@ -59,9 +62,26 @@ h2{
         transition: 0.3s;
     }
 
+/*****    GAMEWINDOW component    *****/
+#gameWindow{
+    background-color: #0C005B;
+    border: 5px solid #0c005b9e;
+    border-spacing: 0.5em;
+    margin: 0 auto 0 auto;
+    padding: 0.5em;
+    border-radius: 30px;
+  }
+  #gameWindow th{
+    background-color: #F1B900;
+    border: 10px solid #f1b900af;
+    padding: 1.5em;
+    border-radius: 10px;
+  }
+  #gameWindow th:hover {
+    background-color: #0C005B;
+  }
 
-
-/* Media queries for mobile view */
+/*****    Media queries for mobile view    *****/
 @media only screen and (max-width: 780px) {
     .btn-mode {
         display: block !important;
