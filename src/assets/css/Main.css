@@ -1,0 +1,71 @@
+h2{
+    /* color: #AF5A4C; */
+    color: white;
+    font-weight: 700;
+    font-size: 26px;
+}
+
+.Header{
+    box-sizing: border-box;
+    color: black;
+    width: 97%;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    padding: 1em;
+    margin: 0em 1em 1em 1em;
+    background-color: whitesmoke;
+    font-family: FreeLine;
+    font-size: x-large;
+    border-radius: 10px 140px 30px 140px;
+}
+
+.mode{
+    margin-top: 10%;
+    align-items: center;
+}
+
+.btn-mode {
+    align-items: center;
+    margin: 20%;
+    display: inline;
+}
+
+.btn{
+    color: #1B1212;
+    border-radius: 20px;
+    width: 200px;
+    height: 100px;
+    margin: 10px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.btn-single{
+    background-color: #FBEEC1;
+    border: 5px solid #f7e4a1;
+}
+    .btn-single:hover {
+        background-color: #f7e4a1;
+        transition: 0.7s;
+    }
+
+.btn-multiple{
+    background-color: #BC986A;
+    border: 5px solid #b08956;
+}
+    .btn-multiple:hover {
+        background-color: #b08956;
+        transition: 0.3s;
+    }
+
+
+
+/* Media queries for mobile view */
+@media only screen and (max-width: 780px) {
+    .btn-mode {
+        display: block !important;
+    }
+}
+
+/* #FBEEC1   #BC986A    #DAAD86    #659DBD  #8D8741 */
