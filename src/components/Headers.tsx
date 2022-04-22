@@ -1,12 +1,12 @@
 import React from 'react'
 import '../assets/css/Main.css';
-import history from './History.tsx'
-import logo from '../assets/img/ttt.png';
+import { useNavigate } from 'react-router-dom';
 
 function Header() {
+  const history = useNavigate();
   return (
     <div className="Header">
-      <img src={logo} alt='logo' onClick={ ()=> history.push('/')}/>
+      <img src={'../assets/img/ttt.png'} alt='logo' onClick={ ()=> history("/")}/>
       <h1>Tic Tac Toe</h1>
     </div>
   )
