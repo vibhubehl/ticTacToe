@@ -2,7 +2,6 @@ import React from 'react';
 
 import './assets/css/App.css';
 import Headers from './components/Headers.tsx'
-import Homepage from './components/Homepage.tsx'
 import AppShell from './components/AppShell.tsx';
 
 function App() {

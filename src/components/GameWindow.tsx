@@ -1,5 +1,5 @@
 import React from 'react';
-import { Panel } from "./Panel.tsx";
+import { Panel } from "./Panel";
 
 const data: number[][] = [
   [1,2,3],
