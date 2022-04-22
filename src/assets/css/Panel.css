@@ -1,0 +1,33 @@
+.App {
+    text-align: center;
+    }  
+
+.Panel-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 10%;
+  }
+
+.Panel-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+ .Panel-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 1%;
+  }
+
+  .Game-Window {
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    height: fit-content
+  }
