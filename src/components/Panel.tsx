@@ -2,7 +2,8 @@
    
 import React, { useState } from 'react';
 import { useStore } from 'react-redux';
-import circle from "../assets/img/circle.png";
+import zero from "../assets/img/zero.png";
+import cross from "../assets/img/cross2.png";
 import '../assets/css/Panel.css';
 
 enum PanelType {
@@ -22,7 +23,7 @@ export function Panel (props: PanelProps) {
   return (
     <div>
         { type === PanelType["empty"] &&
-          <img src={circle} alt="circle" className="Panel-image"/>
+          <img style={{display:"block"}} src={zero} alt="zero" className="Panel-image"/>
         }
     </div>
   );

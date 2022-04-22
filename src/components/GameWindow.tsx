@@ -15,14 +15,14 @@ interface GameWindowProps{
 export function GameWindow (props: GameWindowProps) {
  
     return (
-      <div className="home-page-wrapper page1">
+      <div className="gw-div">
       {/* <div className="Game-Window"> */}
-        <table id="gameWindow" className='Game-Window'>
+        <table id="gameWindow">
         {
           data.map((row, index) => (
-            <tr className='Panel-row' key={row[0]}>
+            <tr key={row[0]}>
               {row.map(cellId => 
-                <th className='.Panel-column' key={cellId}> <Panel id={cellId}/> </th>
+                <th key={cellId}> <Panel id={cellId}/> </th>
               )}
             </tr>
           ))
