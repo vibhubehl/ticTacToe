@@ -1,5 +1,5 @@
 import React from 'react';
-import { Panel } from "./Panel";
+import { Panel, PanelType } from "./Panel";
 import '../assets/css/Panel.css';
 
 const data: number[][] = [
@@ -15,14 +15,14 @@ interface GameWindowProps{
 export function GameWindow (props: GameWindowProps) {
  
     return (
-      <div className="gw-div">
-      {/* <div className="Game-Window"> */}
-        <table id="gameWindow">
+      // <div style={{display: "flex", flexDirection: "row", height:"100%", width:"100%"}}>
+      <div className="Game-Window">
+        <table id="gameWindow" style={{height:"100%", width:"100%"}}>
         {
           data.map((row, index) => (
-            <tr key={row[0]}>
+            <tr className='Panel-row' key={row[0]}>
               {row.map(cellId => 
-                <th key={cellId}> <Panel id={cellId}/> </th>
+                <th className='Panel-column' key={cellId}> <Panel id={cellId} assignedType={PanelType.zero}/> </th>
               )}
             </tr>
           ))

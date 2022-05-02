@@ -6,7 +6,7 @@ import zero from "../assets/img/zero.png";
 import cross from "../assets/img/cross2.png";
 import '../assets/css/Panel.css';
 
-enum PanelType {
+export enum PanelType {
   empty = "empty",
   zero = "zero",
   cross = "cross",
@@ -14,16 +14,25 @@ enum PanelType {
 
 interface PanelProps{
   id: number
+  assignedType: PanelType;
 }
 
 export function Panel (props: PanelProps) {
  
   const [type, setType] = useState(PanelType["empty"]);  
 
+  function toggleState (): void {
+    if ( PanelType["empty"] === type){
+      setType(props.assignedType);
+    } else {
+      setType(PanelType.empty);
+    }
+    console.log("hello1");
+  }
   return (
-    <div>
-        { type === PanelType["empty"] &&
-          <img style={{display:"block"}} src={zero} alt="zero" className="Panel-image"/>
+    <div onClick={toggleState} className="Panel-image">
+        { type === PanelType.zero &&
+          <img style={{display:"block"}} src={zero} alt="zero" onClick={toggleState}/>
         }
     </div>
   );
