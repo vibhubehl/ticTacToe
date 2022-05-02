@@ -8,6 +8,7 @@ body {
   background:linear-gradient(#c4e0e5,transparent);
   background-color:#4ca1af ;
   background-attachment: fixed; 
+  height: 100vh;
 }
 
 button {
@@ -18,3 +19,5 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+html, body { height: 100vh;   width: 100%; margin: 0; padding: 0; }

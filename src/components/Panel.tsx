@@ -2,8 +2,11 @@
    
 import React, { useState } from 'react';
 import { useStore } from 'react-redux';
+import zero from "../assets/img/zero.png";
+import cross from "../assets/img/cross2.png";
+import '../assets/css/Panel.css';
 
-enum PanelType {
+export enum PanelType {
   empty = "empty",
   zero = "zero",
   cross = "cross",
@@ -11,16 +14,25 @@ enum PanelType {
 
 interface PanelProps{
   id: number
+  assignedType: PanelType;
 }
 
 export function Panel (props: PanelProps) {
  
   const [type, setType] = useState(PanelType["empty"]);  
 
+  function toggleState (): void {
+    if ( PanelType["empty"] === type){
+      setType(props.assignedType);
+    } else {
+      setType(PanelType.empty);
+    }
+    console.log("hello1");
+  }
   return (
-    <div style={{height: 40, width: 40 }}>
-        { type === PanelType["empty"] &&
-          <img src="../../assets/img/zero.png"/>
+    <div onClick={toggleState} className="Panel-image">
+        { type === PanelType.zero &&
+          <img style={{display:"block"}} src={zero} alt="zero" onClick={toggleState}/>
         }
     </div>
   );

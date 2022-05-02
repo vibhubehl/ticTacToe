@@ -6,11 +6,9 @@ import AppShell from './components/AppShell.tsx';
 
 function App() {
   return (
-    <div className="App">
-      <div className="home-wrapper">
+    <div className="App" style={{height: "100%"}}>
         <Headers/>
         <AppShell/>
-      </div>
     </div>
   );
 }

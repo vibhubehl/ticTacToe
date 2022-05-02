@@ -32,6 +32,10 @@ h2{
     border-radius: 10px 140px 30px 140px;
 }
 
+.Header img{
+    cursor: pointer;
+}
+
 /*****    HOMEPAGE component    *****/
 .mode{
     margin-top: 10%;
@@ -68,13 +72,13 @@ h2{
     border: 5px solid #0c005b9e;
     border-spacing: 0.5em;
     margin: 0 auto 0 auto;
-    padding: 0.5em;
+    padding: 0.2em;
     border-radius: 30px;
   }
   #gameWindow th{
     background-color: #F1B900;
-    border: 10px solid #f1b900af;
-    padding: 1.5em;
+    border: 5px solid #F1B900;
+    padding: 1.0em;
     border-radius: 10px;
   }
   #gameWindow th:hover {
@@ -86,6 +90,9 @@ h2{
     .btn-mode {
         display: block !important;
     }
+    #gameWindow th{
+        padding: 0.5em;
+    } 
 }
 
 /* #FBEEC1   #BC986A    #DAAD86    #659DBD  #8D8741 */
