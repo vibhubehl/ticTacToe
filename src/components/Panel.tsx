@@ -27,7 +27,6 @@ export function Panel (props: PanelProps) {
     } else {
       setType(PanelType.empty);
     }
-    console.log("hello1");
   }
   return (
     <div onClick={toggleState} className="Panel-image">

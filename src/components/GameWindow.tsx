@@ -17,7 +17,7 @@ export function GameWindow (props: GameWindowProps) {
     return (
       // <div style={{display: "flex", flexDirection: "row", height:"100%", width:"100%"}}>
       <div className="Game-Window">
-        <table id="gameWindow" style={{height:"100%", width:"100%"}}>
+        <table id="gameWindow">
         {
           data.map((row, index) => (
             <tr className='Panel-row' key={row[0]}>
