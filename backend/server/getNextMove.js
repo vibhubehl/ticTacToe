@@ -3,7 +3,7 @@ const axios = require("axios");
 function getNextMove(game, playerType) {
     const options = {
         method: 'GET',
-        url: 'https://stujo-tic-tac-toe-stujo-v1.p.rapidapi.com/%7Bstate%7D/%7Bplayer%7D',
+        url: 'https://stujo-tic-tac-toe-stujo-v1.p.rapidapi.com/' + game +'/' + playerType,
         headers: {
             'X-RapidAPI-Host': 'stujo-tic-tac-toe-stujo-v1.p.rapidapi.com',
             'X-RapidAPI-Key': '3685337b38msh74b50290264686dp19c54fjsnc3a8803befa1'

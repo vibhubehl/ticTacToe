@@ -7,6 +7,6 @@ const app:Application = express();
 
 app.listen(PORT, () => {
   console.log("here!!");
-  getNextMove("----------", "X");
+  getNextMove("---------", "X");
   // console.log(`Server listening on ${PORT}`, getNextMove("----------", "O"));
 });
