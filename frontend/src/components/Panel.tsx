@@ -15,18 +15,22 @@ export enum PanelType {
 interface PanelProps{
   id: number
   assignedType: PanelType;
+  turnOver(): void;
+  currentPlayer: PanelType;
 }
 
 export function Panel (props: PanelProps) {
  
-  const [type, setType] = useState(PanelType["empty"]);  
+  const [type, setType] = useState(PanelType.empty);  
 
   function toggleState (): void {
-    if ( PanelType["empty"] === type){
+    if ( PanelType.empty === type && props.currentPlayer === props.assignedType){
       setType(props.assignedType);
-    } else {
-      setType(PanelType.empty);
-    }
+      props.turnOver();
+    } 
+    // else {
+    //   setType(PanelType.empty);
+    // }
   }
   return (
     <div onClick={toggleState} className="Panel-image">
