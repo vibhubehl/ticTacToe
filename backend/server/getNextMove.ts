@@ -1,8 +1,9 @@
 import axios from "axios";
 import fetch from 'node-fetch';
 
-export default function getNextMove(game: string, playerType: string){
-
+export default function getNextMove(req: any, playerType: any){
+  const game = req;
+  console.log(req);
   const options = {
     method: 'GET',
     url: 'https://stujo-tic-tac-toe-stujo-v1.p.rapidapi.com/' + game + '/' + playerType,
@@ -12,9 +13,9 @@ export default function getNextMove(game: string, playerType: string){
     }
   };
 
-  axios.request(options).then(function (response: any) {
-      console.log(response);
-  }).catch(function (error: Error) {
-      console.error("error" + error);
-  });
+  // axios.request(options).then(function (response: any) {
+  //     console.log(response);
+  // }).catch(function (error: Error) {
+  //     console.error("error" + error);
+  // });
 }
