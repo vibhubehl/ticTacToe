@@ -1,10 +1,7 @@
-import express, {Application} from "express";
-import getNextMove from "./getNextMove";
+import express, {Application, response} from "express";
+import getNextMove from "./controller/nextMoveController";
 var cors = require('cors');
 const bodyParser = require('body-parser');
-// create application/json parser
-var jsonParser = bodyParser.json();
-
 const app:Application = express();
 const PORT = process.env.PORT || 3001;
 
@@ -17,8 +14,9 @@ app.use(cors({
 
 app.post("/getNextMove/",  (req, res) => {
   console.log("request recieved");
-  getNextMove(req.body, res)
-  res.send("hello")
+  var response = getNextMove(req.body, res)
+  console.log(response)
+  // res.send(JSON.stringify(response))
 });
 
 app.listen(PORT, () => {
