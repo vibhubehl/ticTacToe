@@ -4,7 +4,6 @@ import fetch from 'node-fetch';
 export default function getNextMove(req: any, res: any){
   const game = req.game;
   const playerType = req.playerType;
-  console.log(game, playerType);
   const options = {
     method: 'GET',
     url: 'https://stujo-tic-tac-toe-stujo-v1.p.rapidapi.com/' + game + '/' + playerType,

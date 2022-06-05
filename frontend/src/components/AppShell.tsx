@@ -8,7 +8,6 @@ export default class AppShell extends Component {
         return (
             <Routes>
                 <Route path="/" element={<Homepage/>} />
-                <Route path="/gamewindow" element={<GameWindow/>} />
             </Routes>
         )
     }

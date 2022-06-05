@@ -3,8 +3,14 @@ import { PanelType, ROW_VALUE, data, boardType, GameStatus } from "../DTO/boardT
 import { convertBoardToString, getIndexValue, getGameStatus } from "../gameLogic/board";
 import { Panel } from "./Panel";
 import '../assets/css/Panel.css';
+import '../assets/css/Rainbow.css'
+import { GameType } from '../DTO/gameType';
 
-export function GameWindow () {
+type GameWindowProps = {
+	gameType: GameType
+}
+
+export function GameWindow (props: GameWindowProps) {
 	// tracks who's turn it is X or 0
 	const [currentPlayer, setCurrentPlayer] = useState(PanelType.zero);
 	// tracks the board
@@ -13,8 +19,7 @@ export function GameWindow () {
 
 	useEffect(() => {
 		// setGameStatus(getGameStatus(board))
-
-		console.log("useEffect is called " + getGameStatus(board));
+		setGameStatus(getGameStatus(board));
 		const options = {
 		method: 'Post',
 		headers: {
@@ -27,12 +32,10 @@ export function GameWindow () {
 		};
 
 		// cross/X is reseved for bot
-		if(currentPlayer === PanelType.cross){
-			console.log("Fetching next move from backend")
+		if(currentPlayer === PanelType.cross &&  gameStatus === GameStatus.inProgress){
 			fetch('http://localhost:3001/getNextMove/', options).
 			then(function (response: any) {
 				response.json().then( (res) => {
-					console.log("response", board, convertBoardToString(board));
 					board[res.recommendation as number] = currentPlayer
 					setBoard(board);
 					setCurrentPlayer(PanelType.zero);
@@ -45,9 +48,8 @@ export function GameWindow () {
 	});
 
 	function turnOver(row: number, column: number) {
-		console.log("turnover value is", row, column, getIndexValue(row, column))
 		// check if this cell is empty
-		if (board[getIndexValue(row, column)] !== PanelType.empty) {
+		if (board[getIndexValue(row, column)] !== PanelType.empty || gameStatus !== GameStatus.inProgress) {
 			return;
 		}
 		board[getIndexValue(row, column)] = currentPlayer
@@ -59,7 +61,6 @@ export function GameWindow () {
 		else {
 			setCurrentPlayer(PanelType.cross);
 		}
-		console.log("turnOVER", getIndexValue(row, column));
 	}
 
 	// init board
@@ -72,6 +73,22 @@ export function GameWindow () {
 
 	return (
 		<div className="Game-Window">
+			{(gameStatus === GameStatus.tie) &&
+			 	<h3>
+					<span>It's a tie!</span> 
+				</h3>
+			}
+			{(gameStatus === GameStatus.crossWon) && 
+				<h3>
+					<span>You lost!</span> 
+				</h3>
+			}
+			{(gameStatus === GameStatus.zeroWon) && 
+				<h3>
+					<span>You won!</span> 
+				</h3>
+			}
+			{ (GameStatus.inProgress === gameStatus) &&
 			<table id="gameWindow">
 				{
 					data.map((row, index) => (
@@ -91,7 +108,7 @@ export function GameWindow () {
 					</tr>
 					))
 				}
-			</table>
+			</table>}
 		</div>
 	);
 	}

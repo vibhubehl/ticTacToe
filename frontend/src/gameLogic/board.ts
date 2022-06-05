@@ -103,9 +103,10 @@ export function getGameStatus(board: any): GameStatus {
         return GameStatus.zeroWon;
     }
 
-    if (PanelType.empty in board){
-        return GameStatus.inProgress;
+    for (var i = 0; i < ROW_VALUE * COLUMN_VALUE; i++) {
+        if (board[i] === PanelType.empty || board[i] === undefined) {
+            return GameStatus.inProgress
+        }
     }
-
     return GameStatus.tie;
 }

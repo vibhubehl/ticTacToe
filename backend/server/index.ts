@@ -13,9 +13,7 @@ app.use(cors({
 }));
 
 app.post("/getNextMove/",  (req, res) => {
-  console.log("request recieved");
   var response = getNextMove(req.body, res)
-  console.log(response)
   // res.send(JSON.stringify(response))
 });
 
