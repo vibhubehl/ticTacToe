@@ -5,6 +5,7 @@ import { Panel } from "./Panel";
 import '../assets/css/Panel.css';
 import '../assets/css/Rainbow.css'
 import { GameType } from '../DTO/gameType';
+import { requestNextMove } from '../gameLogic/requestNextMove';
 
 type GameWindowProps = {
 	gameType: GameType
@@ -14,37 +15,27 @@ export function GameWindow (props: GameWindowProps) {
 	// tracks who's turn it is X or 0
 	const [currentPlayer, setCurrentPlayer] = useState(PanelType.zero);
 	// tracks the board
-	const [board, setBoard] = useState({});
+	const [board, setBoard] = useState({} as boardType);
 	const [gameStatus, setGameStatus] = useState(GameStatus.inProgress);
 
 	useEffect(() => {
-		// setGameStatus(getGameStatus(board))
+		// update game status
 		setGameStatus(getGameStatus(board));
-		const options = {
-		method: 'Post',
-		headers: {
-			"Content-Type": "application/json",
-		},
-		body: JSON.stringify({
-			"playerType": currentPlayer,
-			"game": convertBoardToString(board),
-		})
-		};
 
 		// cross/X is reseved for bot
 		if(currentPlayer === PanelType.cross &&  gameStatus === GameStatus.inProgress){
-			fetch('http://localhost:3001/getNextMove/', options).
-			then(function (response: any) {
-				response.json().then( (res) => {
-					board[res.recommendation as number] = currentPlayer
+			requestNextMove(props.gameType, currentPlayer, board).then(
+				(response: any) => {
+					board[response.recommendation as number] = currentPlayer;
 					setBoard(board);
 					setCurrentPlayer(PanelType.zero);
-				})
-			}).catch(function (error: Error) {
-				console.error("error" + error);
-			});
+				}
+			).catch(
+				(error: Error) => {
+					console.log("error in getting next move ", error.message);
+				}
+			)
 		}
-
 	});
 
 	function turnOver(row: number, column: number) {
