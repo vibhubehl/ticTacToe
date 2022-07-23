@@ -4,8 +4,8 @@ import { convertBoardToString, getIndexValue, getGameStatus } from "../gameLogic
 import { Panel } from "./Panel";
 import '../assets/css/Panel.css';
 import '../assets/css/Rainbow.css'
-import { GameType } from '../DTO/gameType';
-import { requestNextMove } from '../gameLogic/requestNextMove';
+import { GameType, multiplayerInfo } from '../DTO/gameType';
+import { gameInit, requestNextMove } from '../gameLogic/requestNextMove';
 
 type GameWindowProps = {
 	gameType: GameType
@@ -17,6 +17,7 @@ export function GameWindow (props: GameWindowProps) {
 	// tracks the board
 	const [board, setBoard] = useState({} as boardType);
 	const [gameStatus, setGameStatus] = useState(GameStatus.inProgress);
+	const [multiPlayer, setmultiPlayer] = useState({} as multiplayerInfo)
 
 	useEffect(() => {
 		// update game status
@@ -37,6 +38,11 @@ export function GameWindow (props: GameWindowProps) {
 			)
 		}
 	});
+
+	useEffect(() => {
+		console.log("Init");
+		gameInit(props.gameType, setCurrentPlayer, board, setmultiPlayer);
+	}, []);
 
 	function turnOver(row: number, column: number) {
 		// check if this cell is empty

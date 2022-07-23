@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 export enum PanelType {
   empty = "-",
@@ -10,13 +10,15 @@ export type Player = {
     Type: PanelType,
     ID: Number
 }
+
+export type GameSessionType = {
+  _id: mongoose.ObjectId,
+  Player1?: Player,
+  Player2?: Player
+}
 const PlayerObj : Player = {} as Player;
 
-const GameSchema = new mongoose.Schema({
-  // _id: {
-  //   type: Number,
-  //   unique: true,
-  // },
+export const GameSchema = new mongoose.Schema({
   Player1: {
     type: PlayerObj,
     required: false,

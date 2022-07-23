@@ -3,3 +3,8 @@ export enum GameType {
     singlePlayer = "singlePlayer",
     notSelected = "notSelected"
 }
+
+export type multiplayerInfo = {
+    gameID: number,
+    playerID: number
+}

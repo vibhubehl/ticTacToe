@@ -1,6 +1,6 @@
 import express, {Application, response} from "express";
 import getNextMove from "./controller/singlePlayerController";
-import getGameID from "./controller/multiPlayerController";
+import {getGameID} from "./controller/multiPlayerController";
 import { initialise } from "./database/db_config";
 
 const cors = require('cors');
@@ -11,7 +11,7 @@ require("dotenv").config();
 
 app.use(bodyParser.json()); // <--- Here
 app.use(cors({
-  origin: "http://localhost:" + process.env.PORT
+  origin: "*"
 }));
 
 
@@ -24,7 +24,9 @@ app.post("/getNextMove/singlePlayer",  (req, res) => {
 app.get("/createMultiplayerID", async (request, response) => {
   console.log("got request!");
   var result = getGameID();
-  response.send(result);
+  result.then((res: any) => {
+    response.send(res);
+  } )
 });
 
 // start backend
