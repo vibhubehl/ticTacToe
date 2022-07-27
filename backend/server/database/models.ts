@@ -27,6 +27,14 @@ export const GameSchema = new mongoose.Schema({
     type: PlayerObj,
     required: false,
   },
+  Board:{
+    type: String,
+    required: true,
+  },
+  CurrentPlayer: {
+    type: String,
+    required: true,
+  },
 
 });
 

@@ -1,9 +1,10 @@
-import { PanelType, Player } from "../database/models";
-import { Multiplayer } from "../database/models";
+import { PanelType, Player, Multiplayer } from "../database/models";
 
 export type GameInfo = {
     id: string,
     Player: Player,
+    board: string,
+    currentPlayer: string,
   }
 
 export async function getGameID(): Promise<GameInfo> {
@@ -15,7 +16,9 @@ export async function getGameID(): Promise<GameInfo> {
         const response = createNewGame();
         game = {
             id: response._id,
-            Player: response.Player1
+            Player: response.Player1,
+            board: response.board,
+            currentPlayer: response.CurrentPlayer,
         };
         console.log("create game", game);
     }
@@ -24,7 +27,9 @@ export async function getGameID(): Promise<GameInfo> {
         const response = updateExistingGame(gameInfo);
         game = {
             id: gameInfo._id,
-            Player: gameInfo.Player2
+            Player: gameInfo.Player2,
+            board: gameInfo.board,
+            currentPlayer: gameInfo.CurrentPlayer,
         };
     }
     return new Promise<GameInfo>((resolve) => {
@@ -49,7 +54,9 @@ export function createNewGame() {
         Player1:{
             Type: PanelType.zero,
             ID: 1
-        }
+        },
+        Board: "---------",
+        CurrentPlayer: PanelType.zero,
         }
     );
     game.save();
@@ -65,12 +72,4 @@ export async function updateExistingGame(mongoObj: any): Promise<any> {
             }
         }
     );
-    console.log("upate", res);
-    // query DB for any game session with undefined player2
-    // return new Promise<any>((resolve, reject) => {
-    //     if (res === null) {
-    //         reject(Error("Unable to get game info."))
-    //     }
-    //     resolve(res);
-    // });
 }
