@@ -14,6 +14,7 @@ type GameWindowProps = {
 export function GameWindow (props: GameWindowProps) {
 	// tracks who's turn it is X or 0
 	const [currentPlayer, setCurrentPlayer] = useState(PanelType.zero);
+	const [myPlayerType, setmyPlayerType] = useState(PanelType.zero);
 	// tracks the board
 	const [board, setBoard] = useState({} as boardType);
 	const [gameStatus, setGameStatus] = useState(GameStatus.inProgress);
@@ -22,6 +23,7 @@ export function GameWindow (props: GameWindowProps) {
 	useEffect(() => {
 		// update game status
 		setGameStatus(getGameStatus(board));
+		console.log(board,gameStatus, currentPlayer);
 
 		// cross/X is reseved for bot
 		if(currentPlayer === PanelType.cross &&  gameStatus === GameStatus.inProgress){
@@ -41,7 +43,7 @@ export function GameWindow (props: GameWindowProps) {
 
 	useEffect(() => {
 		console.log("Init");
-		gameInit(props.gameType, setCurrentPlayer, board, setmultiPlayer);
+		gameInit(props.gameType, setCurrentPlayer, board, setmultiPlayer, setmyPlayerType);
 	}, []);
 
 	function turnOver(row: number, column: number) {

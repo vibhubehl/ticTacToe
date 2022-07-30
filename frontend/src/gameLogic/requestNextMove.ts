@@ -4,6 +4,14 @@ import { convertBoardToString } from "./board";
 import axios from "axios";
 
 export async function requestNextMove (gameType: GameType, currentPlayer: PanelType, board: boardType): Promise<Error|Request> {
+   var response: any;
+   if (gameType === GameType.singlePlayer) {
+    response = await requestNextMoveSinglePlayer(gameType, currentPlayer, board);
+   }
+    return response.json();
+};
+
+export async function requestNextMoveSinglePlayer (gameType: GameType, currentPlayer: PanelType, board: boardType): Promise<Error|Request> {
     const options = {
 		method: 'Post',
 		headers: {
@@ -18,15 +26,17 @@ export async function requestNextMove (gameType: GameType, currentPlayer: PanelT
     return response.json();
 };
 
-export async function gameInit (gameType: GameType, setCurrentPlayer: Function, board: boardType, setmultiPlayer: Function): Promise<void> {
+export async function gameInit (gameType: GameType, setCurrentPlayer: Function, board: boardType, setmultiPlayer: Function, setmyPlayerType: Function): Promise<void> {
 
     if (gameType === GameType.singlePlayer) {
         setCurrentPlayer(PanelType.zero);
+        setmyPlayerType(PanelType.zero)
     }
     else if (gameType === GameType.multiPlayer) {
         const response = axios.get('https://9f4c9738-2f7e-4cf6-b316-d9ace1ddbb65.mock.pstmn.io/multiplayerinit');
         const data = (await response).data;
-        setCurrentPlayer(data.currentPlayer);
+        setCurrentPlayer(PanelType.zero);
+        setmyPlayerType(data.currentPlayer)
         setmultiPlayer({
             playerID: data.playerID,
             gameID: data.gameID
